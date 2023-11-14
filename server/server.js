@@ -14,12 +14,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(express.json());
-app.use(
-  cors({
-    origin: true,
-    credential: true,
-  })
-);
+app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 connectToDb();
 

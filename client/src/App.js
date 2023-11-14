@@ -1,4 +1,4 @@
-import LogIn from "./pages/logInPage";
+import LogIn from "./pages/logIn";
 import Notes from "./pages/notes";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
