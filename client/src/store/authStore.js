@@ -25,13 +25,12 @@ const authStore = create((set) => ({
   login: async (e) => {
     e.preventDefault();
 
-    const { loginFrom } = authStore.getState();
-    console.log("Error detection 1");
+    const { loginForm } = authStore.getState();
 
-    const res = await axios.post("/login", loginFrom, {
+    const res = await axios.post("/login", loginForm, {
       withCredentials: true,
     });
-    console.log("Error detection 2");
+
     console.log(res);
   },
 }));
