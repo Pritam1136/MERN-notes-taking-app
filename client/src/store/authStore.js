@@ -26,11 +26,12 @@ const authStore = create((set) => ({
     e.preventDefault();
 
     const { loginFrom } = authStore.getState();
+    console.log("Error detection 1");
 
     const res = await axios.post("/login", loginFrom, {
       withCredentials: true,
-      crossorigin: true,
     });
+    console.log("Error detection 2");
     console.log(res);
   },
 }));
