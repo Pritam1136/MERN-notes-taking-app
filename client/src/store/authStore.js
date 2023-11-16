@@ -24,9 +24,7 @@ const authStore = create((set) => ({
       };
     });
   },
-  login: async (e) => {
-    e.preventDefault();
-
+  login: async () => {
     const { loginForm } = authStore.getState();
 
     const res = await axios.post("/login", loginForm, {
@@ -34,8 +32,17 @@ const authStore = create((set) => ({
     });
 
     set({ logginIn: true });
+  },
 
-    console.log(res);
+  checkAuth: async () => {
+    try {
+      await axios.get("/check-auth", {
+        withCredentials: true,
+      });
+      set({ logginIn: true });
+    } catch (error) {
+      set({ logginIn: false });
+    }
   },
 }));
 
