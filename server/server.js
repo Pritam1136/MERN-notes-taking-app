@@ -26,15 +26,15 @@ app.get("/logout", usersController.logOut);
 
 app.get("/check-auth", requireAuth, usersController.checkAuth);
 
-app.get("/notes", notesController.fetchNotes);
+app.get("/notes", requireAuth, notesController.fetchNotes);
 
-app.get("/notes/:id", notesController.fetchNote);
+app.get("/notes/:id", requireAuth, notesController.fetchNote);
 
-app.post("/notes", notesController.createNotes);
+app.post("/notes", requireAuth, notesController.createNotes);
 
-app.put("/notes/:id", notesController.updateNotes);
+app.put("/notes/:id", requireAuth, notesController.updateNotes);
 
-app.delete("/notes/:id", notesController.deleteNotes);
+app.delete("/notes/:id", requireAuth, notesController.deleteNotes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server started in port ${process.env.PORT}`);
