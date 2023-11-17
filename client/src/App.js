@@ -1,5 +1,7 @@
 import RequireAuth from "./components/requireAuth";
+import Signup from "./pages/Signup";
 import LogIn from "./pages/logIn";
+import Logout from "./pages/logout";
 import Notes from "./pages/notes";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 
@@ -12,7 +14,13 @@ function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/login">login</Link>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/signup">Signup</Link>
+          </li>
+          <li>
+            <Link to="/logout">Logout</Link>
           </li>
         </ul>
         <Routes>
@@ -25,6 +33,8 @@ function App() {
             }
           />
           <Route path="/login" element={<LogIn />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/logout" element={<Logout />} />
         </Routes>
       </BrowserRouter>
     </div>
